@@ -13,7 +13,7 @@ function getArrayParams(...arr) {
 	return {
 		min: min,
 		max: max,
-		avg: avg.toFixed(2)
+		avg: +avg.toFixed(2)
 	};
 }
 
@@ -26,7 +26,7 @@ function summElementsWorker(...arr) {
 
 function differenceMaxMinWorker(...arr) {
 	let min, max, diffMinMax;
-	if (arr.length === 0) min = max = diffMinMax = 0;
+	if (arr.length === 0) diffMinMax = 0;
 	min = max = arr[0];
 	for (let i = 1; i < arr.length; i++) {
 		min = Math.min(min, arr[i]);
