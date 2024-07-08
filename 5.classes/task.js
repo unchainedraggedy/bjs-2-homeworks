@@ -12,8 +12,8 @@ class PrintEditionItem {
 	}
 
 	set state(newState) {
-		newState < 0 ? this._state = 0 : newState > 100 ? this._state = 100 : 
-		this._state = newState
+		newState < 0 ? this._state = 0 : newState > 100 ? this._state = 100 :
+			this._state = newState
 	}
 
 	get state() {
@@ -64,17 +64,13 @@ class Library {
 	}
 
 	addBook(book) {
-		if (book.state > 30) {
-			this.books.push(book);
-		}
+		book.state > 30 ? this.books.push(book) : undefined;
 	}
 
 	findBookBy(type, value) {
 		let bookFound = null;
 		for (const book of this.books) {
-			if (book[type] === value) {
-				bookFound = book;
-			}
+			book[type] === value ? bookFound = book : null;
 		}
 		return bookFound;
 	}
@@ -82,10 +78,9 @@ class Library {
 	giveBookByName(bookName) {
 		let bookSpliced = null;
 		const bookIndex = this.books.findIndex(book => book.name === bookName);
-		if (bookIndex !== -1) {
-			bookSpliced = this.books[bookIndex];
-			this.books.splice(bookIndex, 1);
-		}
+
+		bookIndex !== -1 ? (bookSpliced = this.books[bookIndex], this.books.splice(bookIndex, 1)) : null;
+
 		return bookSpliced;
 	}
 }
