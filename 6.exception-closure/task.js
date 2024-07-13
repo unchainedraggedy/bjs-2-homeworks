@@ -1,8 +1,9 @@
 ﻿function parseCount(arg) {
-	if (isNaN(parseFloat(arg))) {
+	let item = parseFloat(arg)
+	if (isNaN(item)) {
 		throw new Error('Невалидное значение')
 	}
-	return parseFloat(arg)
+	return item
 }
 
 function validateCount(arg) {
@@ -28,7 +29,7 @@ class Triangle {
 		return this.sideA + this.sideB + this.sideC;
 	}
 	get area() {
-		let p = (this.sideA + this.sideB + this.sideC) / 2;
+		let p = this.perimeter / 2;
 		return +(Math.sqrt(p * (p - this.sideA) * (p - this.sideB) * (p - this.sideC))).toFixed(3)
 	}
 }
